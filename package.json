@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/padsbanger/elektron-videoinfo/issues"
   },
-  "homepage": "https://github.com/padsbanger/elektron-videoinfo#readme"
+  "homepage": "https://github.com/padsbanger/elektron-videoinfo#readme",
+  "dependencies": {
+    "electron": "^7.0.1"
+  }
 }
