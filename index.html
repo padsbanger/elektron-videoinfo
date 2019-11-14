@@ -1,28 +1,18 @@
 <head> </head>
 <body>
-  <h1>Video info</h1>
-  <form>
-    <div>
-      <label>Select a video</label>
-      <input type="file" acceot="video/*" />
-    </div>
-    <button type="submit">Get info</button>
-    <h2></h2>
-  </form>
+  <h1>TODO App</h1>
+  <ul></ul>
 
   <script>
     const electron = require("electron");
     const { ipcRenderer } = electron;
 
-    document.querySelector("form").addEventListener("submit", event => {
-      event.preventDefault();
-      const { path } = document.querySelector("input").files[0];
+    ipcRenderer.on("todo:add", (event, todo) => {
+      const element = document.createElement("li");
+      const text = document.createTextNode(todo);
+      element.appendChild(text);
 
-      ipcRenderer.send("video:submit", path);
-    });
-
-    ipcRenderer.on("video:metadata", (e, duration) => {
-      document.querySelector("h2").innerHTML = duration;
+      const list = document.querySelector("ul").appendChild(element);
     });
   </script>
 </body>
